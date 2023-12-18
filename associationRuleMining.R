@@ -1,0 +1,17 @@
+# library(arules)
+# library(arulesViz)
+# data("Groceries")
+# model = apriori(Groceries, parameter = list(support=0.002, confidence = 0.5))
+# summary(model)
+# inspect(model[1:10])
+# itemFrequencyPlot(Groceries, topN=10)
+# plot(model, method = "graph")
+
+data = read.transactions("grocerylist.txt", format = 'basket', sep=",")
+print(data)
+model = apriori(data, parameter = list(support=0.002, confidence = 0.5))
+summary(model)
+inspect(model[1:10])
+itemFrequencyPlot(data, topN=10)
+plot(model, method = "graph")
+
